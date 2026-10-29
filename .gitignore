@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+runs/
+# Keep the user's original exam instructions locally; project docs restate requirements.
+试卷说明.md

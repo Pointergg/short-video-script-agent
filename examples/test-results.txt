@@ -1,0 +1,32 @@
+test_changing_duration_changes_next_action (test_agent.AgentTests.test_changing_duration_changes_next_action) ... ok
+test_draft_is_owned_by_tool_not_provider (test_agent.AgentTests.test_draft_is_owned_by_tool_not_provider) ... ok
+test_duration_matches_scene_timeline (test_agent.AgentTests.test_duration_matches_scene_timeline) ... ok
+test_edit_invalidates_checks (test_agent.AgentTests.test_edit_invalidates_checks) ... ok
+test_fabricated_eighty_percent_is_rejected (test_agent.AgentTests.test_fabricated_eighty_percent_is_rejected) ... ok
+test_failed_rules_can_be_repaired_and_rechecked (test_agent.AgentTests.test_failed_rules_can_be_repaired_and_rechecked) ... ok
+test_forged_source_and_neutral_claim_and_visual_are_rejected (test_agent.AgentTests.test_forged_source_and_neutral_claim_and_visual_are_rejected) ... ok
+test_hidden_unchecked_copy_fields_are_rejected (test_agent.AgentTests.test_hidden_unchecked_copy_fields_are_rejected) ... ok
+test_impossible_duration_fails (test_agent.AgentTests.test_impossible_duration_fails) ... ok
+test_invalid_material_file_is_rejected (test_agent.AgentTests.test_invalid_material_file_is_rejected) ... ok
+test_invalid_tool_arguments_can_be_corrected (test_agent.AgentTests.test_invalid_tool_arguments_can_be_corrected) ... ok
+test_malformed_model_response_is_recorded (test_agent.AgentTests.test_malformed_model_response_is_recorded) ... ok
+test_missing_info_never_calls_business_tools (test_agent.AgentTests.test_missing_info_never_calls_business_tools) ... ok
+test_no_materials_rewrites_then_requests_input (test_agent.AgentTests.test_no_materials_rewrites_then_requests_input) ... ok
+test_nonfinite_and_boolean_duration_rejected (test_agent.AgentTests.test_nonfinite_and_boolean_duration_rejected) ... ok
+test_over_duration_is_revised_then_rechecked (test_agent.AgentTests.test_over_duration_is_revised_then_rechecked) ... ok
+test_oversized_or_negative_draft_is_rejected (test_agent.AgentTests.test_oversized_or_negative_draft_is_rejected) ... ok
+test_premature_finish_is_rejected (test_agent.AgentTests.test_premature_finish_is_rejected) ... ok
+test_query_rewrite_can_recover (test_agent.AgentTests.test_query_rewrite_can_recover) ... ok
+test_step_limit_explicitly_incomplete (test_agent.AgentTests.test_step_limit_explicitly_incomplete) ... ok
+test_tool_failure_is_not_success (test_agent.AgentTests.test_tool_failure_is_not_success) ... ok
+test_unretrieved_fact_not_accepted (test_agent.AgentTests.test_unretrieved_fact_not_accepted) ... ok
+test_broken_response_is_explicit_failure (test_provider.ProviderTests.test_broken_response_is_explicit_failure) ... ok
+test_http_error_body_does_not_leak (test_provider.ProviderTests.test_http_error_body_does_not_leak) ... ok
+test_json_action_transport (test_provider.ProviderTests.test_json_action_transport) ... ok
+test_missing_key_and_insecure_endpoint_rejected (test_provider.ProviderTests.test_missing_key_and_insecure_endpoint_rejected) ... ok
+test_timeout_fails_instead_of_switching_to_mock (test_provider.ProviderTests.test_timeout_fails_instead_of_switching_to_mock) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.023s
+
+OK

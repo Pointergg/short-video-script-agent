@@ -1,0 +1,366 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "message": "脚本通过当前素材、品牌规则与估算时长检查。",
+  "provider": "mock",
+  "model": "offline-simulator-v1",
+  "input": {
+    "topic": "字幕助手",
+    "audience": "新手视频创作者",
+    "platform": "抖音",
+    "target_seconds": 60,
+    "style": "简洁介绍"
+  },
+  "corpus_sha256": "676b1490245439c3c6bace08d3258462e0425f15a27e29d704952ecf0168a4bc",
+  "script": {
+    "title": "字幕助手",
+    "scenes": [
+      {
+        "visual": "产品名称卡片",
+        "visual_seconds": 0,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          },
+          {
+            "kind": "neutral",
+            "text": "让我们看看这个功能。"
+          },
+          {
+            "kind": "neutral",
+            "text": "你的视频，需要字幕吗？"
+          },
+          {
+            "kind": "neutral",
+            "text": "把注意力放在表达上。"
+          },
+          {
+            "kind": "neutral",
+            "text": "一起看看。"
+          },
+          {
+            "kind": "neutral",
+            "text": "欢迎了解。"
+          },
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          },
+          {
+            "kind": "neutral",
+            "text": "让我们看看这个功能。"
+          },
+          {
+            "kind": "neutral",
+            "text": "你的视频，需要字幕吗？"
+          },
+          {
+            "kind": "neutral",
+            "text": "把注意力放在表达上。"
+          },
+          {
+            "kind": "neutral",
+            "text": "一起看看。"
+          },
+          {
+            "kind": "neutral",
+            "text": "欢迎了解。"
+          },
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          },
+          {
+            "kind": "neutral",
+            "text": "让我们看看这个功能。"
+          }
+        ]
+      },
+      {
+        "visual": "字幕功能文字卡片",
+        "visual_seconds": 0,
+        "segments": [
+          {
+            "kind": "fact",
+            "text": "支持字幕",
+            "source_id": "P01"
+          }
+        ]
+      }
+    ]
+  },
+  "draft": null,
+  "estimated_total_seconds": 31.0,
+  "source_ids": [
+    "P01"
+  ],
+  "sources": [
+    {
+      "id": "P01",
+      "product": "字幕助手",
+      "tags": [
+        "字幕",
+        "产品",
+        "字幕助手"
+      ],
+      "facts": [
+        "支持字幕"
+      ],
+      "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+    }
+  ],
+  "checks": {
+    "duration": {
+      "ok": true,
+      "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+      "scenes": [
+        {
+          "scene": 1,
+          "start_seconds": 0,
+          "seconds": 29.5,
+          "end_seconds": 29.5,
+          "source_ids": [],
+          "speech_units": 97
+        },
+        {
+          "scene": 2,
+          "start_seconds": 29.5,
+          "seconds": 1.5,
+          "end_seconds": 31.0,
+          "source_ids": [
+            "P01"
+          ],
+          "speech_units": 4
+        }
+      ],
+      "total_seconds": 31.0,
+      "limit_seconds": 60,
+      "within_limit": true,
+      "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+    },
+    "rules": {
+      "ok": true,
+      "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+      "passed": true,
+      "issues": [],
+      "scenes": [
+        {
+          "scene": 1,
+          "passed": true,
+          "source_ids": [],
+          "issues": []
+        },
+        {
+          "scene": 2,
+          "passed": true,
+          "source_ids": [
+            "P01"
+          ],
+          "issues": []
+        }
+      ]
+    }
+  },
+  "questions": [],
+  "risks": [
+    "本次为离线 Mock：仅证明工程流程，不证明真实模型决策或创作质量。",
+    "时长为文本启发式估算，未使用真实配音测量。",
+    "创意范围受已批准文案和画面白名单限制；任意语义改写需另行人工审核。",
+    "尚未进行真实平台政策、法律合规或最终视频审核。"
+  ],
+  "steps_used": 5,
+  "max_steps": 14,
+  "elapsed_seconds": 0.0,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕助手"
+      },
+      "reason": "先检索主题对应的可引用事实。",
+      "observation": {
+        "ok": true,
+        "materials": [
+          {
+            "id": "P01",
+            "product": "字幕助手",
+            "tags": [
+              "字幕",
+              "产品",
+              "字幕助手"
+            ],
+            "facts": [
+              "支持字幕"
+            ],
+            "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "step": 2,
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕助手",
+          "scenes": [
+            {
+              "visual": "产品名称卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "让我们看看这个功能。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "把注意力放在表达上。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "一起看看。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "欢迎了解。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "让我们看看这个功能。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "把注意力放在表达上。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "一起看看。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "欢迎了解。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "让我们看看这个功能。"
+                }
+              ]
+            },
+            {
+              "visual": "字幕功能文字卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "fact",
+                  "text": "支持字幕",
+                  "source_id": "P01"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "reason": "已找到事实，生成可审计草稿。",
+      "observation": {
+        "ok": true,
+        "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+        "scene_count": 2
+      }
+    },
+    {
+      "step": 3,
+      "action": "estimate_duration",
+      "arguments": {},
+      "reason": "草稿已更新，先检查时长。",
+      "observation": {
+        "ok": true,
+        "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+        "scenes": [
+          {
+            "scene": 1,
+            "start_seconds": 0,
+            "seconds": 29.5,
+            "end_seconds": 29.5,
+            "source_ids": [],
+            "speech_units": 97
+          },
+          {
+            "scene": 2,
+            "start_seconds": 29.5,
+            "seconds": 1.5,
+            "end_seconds": 31.0,
+            "source_ids": [
+              "P01"
+            ],
+            "speech_units": 4
+          }
+        ],
+        "total_seconds": 31.0,
+        "limit_seconds": 60,
+        "within_limit": true,
+        "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+      }
+    },
+    {
+      "step": 4,
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "时长合格，核对事实来源和品牌规则。",
+      "observation": {
+        "ok": true,
+        "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+        "passed": true,
+        "issues": [],
+        "scenes": [
+          {
+            "scene": 1,
+            "passed": true,
+            "source_ids": [],
+            "issues": []
+          },
+          {
+            "scene": 2,
+            "passed": true,
+            "source_ids": [
+              "P01"
+            ],
+            "issues": []
+          }
+        ]
+      }
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "arguments": {},
+      "reason": "最新草稿的时长和事实规则检查均通过。",
+      "observation": {
+        "ok": true,
+        "status": "completed"
+      }
+    }
+  ]
+}
