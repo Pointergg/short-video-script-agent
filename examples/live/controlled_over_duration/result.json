@@ -1,0 +1,457 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "message": "脚本通过当前素材、品牌规则与估算时长检查。",
+  "provider": "live",
+  "history_origin": "fixture_seeded_then_provider",
+  "model": "deepseek-chat",
+  "input": {
+    "topic": "字幕助手",
+    "audience": "新手视频创作者",
+    "platform": "抖音",
+    "target_seconds": 30,
+    "style": "简洁介绍"
+  },
+  "corpus_sha256": "676b1490245439c3c6bace08d3258462e0425f15a27e29d704952ecf0168a4bc",
+  "script": {
+    "title": "字幕助手",
+    "scenes": [
+      {
+        "visual": "产品名称卡片",
+        "visual_seconds": 0,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          },
+          {
+            "kind": "neutral",
+            "text": "你的视频，需要字幕吗？"
+          },
+          {
+            "kind": "neutral",
+            "text": "把注意力放在表达上。"
+          }
+        ]
+      },
+      {
+        "visual": "字幕功能文字卡片",
+        "visual_seconds": 0,
+        "segments": [
+          {
+            "kind": "fact",
+            "text": "支持字幕",
+            "source_id": "P01"
+          }
+        ]
+      },
+      {
+        "visual": "结尾文字卡片",
+        "visual_seconds": 0,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "一起看看。"
+          }
+        ]
+      }
+    ]
+  },
+  "draft": null,
+  "estimated_total_seconds": 11.1,
+  "source_ids": [
+    "P01"
+  ],
+  "sources": [
+    {
+      "id": "P01",
+      "product": "字幕助手",
+      "tags": [
+        "字幕",
+        "产品",
+        "字幕助手"
+      ],
+      "facts": [
+        "支持字幕"
+      ],
+      "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+    }
+  ],
+  "checks": {
+    "duration": {
+      "ok": true,
+      "draft_id": "ae02355745cbf35d407862d9e0fcbceba576fa78d0b3a90bc20d04617cf386aa",
+      "scenes": [
+        {
+          "scene": 1,
+          "start_seconds": 0,
+          "seconds": 7.8,
+          "end_seconds": 7.8,
+          "source_ids": [],
+          "speech_units": 24
+        },
+        {
+          "scene": 2,
+          "start_seconds": 7.8,
+          "seconds": 1.5,
+          "end_seconds": 9.3,
+          "source_ids": [
+            "P01"
+          ],
+          "speech_units": 4
+        },
+        {
+          "scene": 3,
+          "start_seconds": 9.3,
+          "seconds": 1.8,
+          "end_seconds": 11.1,
+          "source_ids": [],
+          "speech_units": 4
+        }
+      ],
+      "total_seconds": 11.1,
+      "limit_seconds": 30,
+      "within_limit": true,
+      "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+    },
+    "rules": {
+      "ok": true,
+      "draft_id": "ae02355745cbf35d407862d9e0fcbceba576fa78d0b3a90bc20d04617cf386aa",
+      "passed": true,
+      "issues": [],
+      "scenes": [
+        {
+          "scene": 1,
+          "passed": true,
+          "source_ids": [],
+          "issues": []
+        },
+        {
+          "scene": 2,
+          "passed": true,
+          "source_ids": [
+            "P01"
+          ],
+          "issues": []
+        },
+        {
+          "scene": 3,
+          "passed": true,
+          "source_ids": [],
+          "issues": []
+        }
+      ]
+    }
+  },
+  "questions": [],
+  "risks": [
+    "时长为文本启发式估算，未使用真实配音测量。",
+    "创意范围受已批准文案和画面白名单限制；任意语义改写需另行人工审核。",
+    "尚未进行真实平台政策、法律合规或最终视频审核。"
+  ],
+  "steps_used": 7,
+  "max_steps": 14,
+  "elapsed_seconds": 4.61,
+  "trace": [
+    {
+      "step": 1,
+      "origin": "test_fixture",
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕助手"
+      },
+      "reason": "受控测试夹具执行，非模型选择",
+      "observation": {
+        "ok": true,
+        "materials": [
+          {
+            "id": "P01",
+            "product": "字幕助手",
+            "tags": [
+              "字幕",
+              "产品",
+              "字幕助手"
+            ],
+            "facts": [
+              "支持字幕"
+            ],
+            "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "step": 2,
+      "origin": "test_fixture",
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕助手",
+          "scenes": [
+            {
+              "visual": "产品名称卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "让我们看看这个功能。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "把注意力放在表达上。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "一起看看。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "欢迎了解。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "让我们看看这个功能。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "把注意力放在表达上。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "一起看看。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "欢迎了解。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "让我们看看这个功能。"
+                }
+              ]
+            },
+            {
+              "visual": "字幕功能文字卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "fact",
+                  "text": "支持字幕",
+                  "source_id": "P01"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "reason": "受控测试夹具执行，非模型选择",
+      "observation": {
+        "ok": true,
+        "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+        "scene_count": 2
+      }
+    },
+    {
+      "step": 3,
+      "origin": "test_fixture",
+      "action": "estimate_duration",
+      "arguments": {},
+      "reason": "受控测试夹具执行，非模型选择",
+      "observation": {
+        "ok": true,
+        "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+        "scenes": [
+          {
+            "scene": 1,
+            "start_seconds": 0,
+            "seconds": 29.5,
+            "end_seconds": 29.5,
+            "source_ids": [],
+            "speech_units": 97
+          },
+          {
+            "scene": 2,
+            "start_seconds": 29.5,
+            "seconds": 1.5,
+            "end_seconds": 31.0,
+            "source_ids": [
+              "P01"
+            ],
+            "speech_units": 4
+          }
+        ],
+        "total_seconds": 31.0,
+        "limit_seconds": 30,
+        "within_limit": false,
+        "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+      }
+    },
+    {
+      "step": 4,
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕助手",
+          "scenes": [
+            {
+              "visual": "产品名称卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "把注意力放在表达上。"
+                }
+              ]
+            },
+            {
+              "visual": "字幕功能文字卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "fact",
+                  "text": "支持字幕",
+                  "source_id": "P01"
+                }
+              ]
+            },
+            {
+              "visual": "结尾文字卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "一起看看。"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "origin": "model",
+      "reason": "原草稿31秒超限且旁白重复，删减为3镜并保留唯一事实引用",
+      "observation": {
+        "ok": true,
+        "draft_id": "ae02355745cbf35d407862d9e0fcbceba576fa78d0b3a90bc20d04617cf386aa",
+        "scene_count": 3
+      }
+    },
+    {
+      "step": 5,
+      "action": "estimate_duration",
+      "arguments": {},
+      "origin": "model",
+      "reason": "删减后需重新估算时长，确认是否在30秒上限内",
+      "observation": {
+        "ok": true,
+        "draft_id": "ae02355745cbf35d407862d9e0fcbceba576fa78d0b3a90bc20d04617cf386aa",
+        "scenes": [
+          {
+            "scene": 1,
+            "start_seconds": 0,
+            "seconds": 7.8,
+            "end_seconds": 7.8,
+            "source_ids": [],
+            "speech_units": 24
+          },
+          {
+            "scene": 2,
+            "start_seconds": 7.8,
+            "seconds": 1.5,
+            "end_seconds": 9.3,
+            "source_ids": [
+              "P01"
+            ],
+            "speech_units": 4
+          },
+          {
+            "scene": 3,
+            "start_seconds": 9.3,
+            "seconds": 1.8,
+            "end_seconds": 11.1,
+            "source_ids": [],
+            "speech_units": 4
+          }
+        ],
+        "total_seconds": 11.1,
+        "limit_seconds": 30,
+        "within_limit": true,
+        "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+      }
+    },
+    {
+      "step": 6,
+      "action": "check_rules",
+      "arguments": {},
+      "origin": "model",
+      "reason": "时长已符合上限，需核验事实引用与品牌规则后才能完成",
+      "observation": {
+        "ok": true,
+        "draft_id": "ae02355745cbf35d407862d9e0fcbceba576fa78d0b3a90bc20d04617cf386aa",
+        "passed": true,
+        "issues": [],
+        "scenes": [
+          {
+            "scene": 1,
+            "passed": true,
+            "source_ids": [],
+            "issues": []
+          },
+          {
+            "scene": 2,
+            "passed": true,
+            "source_ids": [
+              "P01"
+            ],
+            "issues": []
+          },
+          {
+            "scene": 3,
+            "passed": true,
+            "source_ids": [],
+            "issues": []
+          }
+        ]
+      }
+    },
+    {
+      "step": 7,
+      "action": "finish",
+      "arguments": {},
+      "origin": "model",
+      "reason": "最新草稿时长11.1秒未超30秒上限，规则核验通过，可完成",
+      "observation": {
+        "ok": true,
+        "status": "completed"
+      }
+    }
+  ]
+}

@@ -9,6 +9,8 @@ def render_markdown(result):
     lines = ["# 短视频脚本运行报告", "", f"- 状态：{result['status']}", f"- 运行模式：{result['provider']} / {result['model']}",
              f"- 说明：{result['message']}", f"- 预计总时长：{result['estimated_total_seconds']} 秒", "", "## 可编辑脚本", ""]
     script = result["script"]
+    if result.get("history_origin") == "fixture_seeded_then_provider":
+        lines += ["本报告含受控测试：标注 test_fixture 的起始动作由测试程序执行，其后动作由 provider 决策。", ""]
     if script:
         lines += [f"标题：{script['title']}", "", "| 镜头 | 画面 | 旁白 / 字幕 | 起止秒 | 来源 | 规则 |", "|---|---|---|---|---|---|"]
         for scene, timing, check in zip(script["scenes"], result["checks"]["duration"]["scenes"], result["checks"]["rules"]["scenes"]):
@@ -17,11 +19,12 @@ def render_markdown(result):
     else:
         lines.append("无可交付脚本。未通过草稿可在 JSON 的 draft 字段查看。")
     lines += ["", "## 补充信息", "", *["- " + q for q in result["questions"]], "", "## 风险", "", *["- " + risk for risk in result["risks"]],
-              "", "## 动作记录", "", "| 步骤 | 动作 | 简要依据 | 结果 |", "|---|---|---|---|"]
+              "", "## 动作记录", "", "| 步骤 | 动作来源 | 动作 | 简要依据 | 结果 |", "|---|---|---|---|---|"]
     for event in result["trace"]:
         obs = event["observation"]
         summary = {k: v for k, v in obs.items() if k in ("ok", "error", "count", "total_seconds", "within_limit", "passed", "issues", "status")}
-        lines.append(f"| {event['step']} | {event['action']} | {event['reason']} | {json.dumps(summary, ensure_ascii=False)} |")
+        origin = event.get('origin', 'runtime' if event['action'] == 'model_error' else result['provider'])
+        lines.append(f"| {event['step']} | {origin} | {event['action']} | {event['reason']} | {json.dumps(summary, ensure_ascii=False)} |")
     return "\n".join(lines) + "\n"
 
 

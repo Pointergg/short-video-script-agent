@@ -3,6 +3,7 @@
   "status": "completed",
   "message": "脚本通过当前素材、品牌规则与估算时长检查。",
   "provider": "mock",
+  "history_origin": "provider_driven",
   "model": "offline-simulator-v1",
   "input": {
     "topic": "字幕助手",
@@ -167,6 +168,7 @@
       "arguments": {
         "query": "字幕助手"
       },
+      "origin": "offline_simulator",
       "reason": "先检索主题对应的可引用事实。",
       "observation": {
         "ok": true,
@@ -271,6 +273,7 @@
           ]
         }
       },
+      "origin": "offline_simulator",
       "reason": "已找到事实，生成可审计草稿。",
       "observation": {
         "ok": true,
@@ -282,6 +285,7 @@
       "step": 3,
       "action": "estimate_duration",
       "arguments": {},
+      "origin": "offline_simulator",
       "reason": "草稿已更新，先检查时长。",
       "observation": {
         "ok": true,
@@ -383,6 +387,7 @@
           ]
         }
       },
+      "origin": "offline_simulator",
       "reason": "时长超限，按检查结果压缩铺垫并保留事实镜头，再次估算。",
       "observation": {
         "ok": true,
@@ -394,6 +399,7 @@
       "step": 5,
       "action": "estimate_duration",
       "arguments": {},
+      "origin": "offline_simulator",
       "reason": "草稿已更新，先检查时长。",
       "observation": {
         "ok": true,
@@ -428,6 +434,7 @@
       "step": 6,
       "action": "check_rules",
       "arguments": {},
+      "origin": "offline_simulator",
       "reason": "时长合格，核对事实来源和品牌规则。",
       "observation": {
         "ok": true,
@@ -456,6 +463,7 @@
       "step": 7,
       "action": "finish",
       "arguments": {},
+      "origin": "offline_simulator",
       "reason": "最新草稿的时长和事实规则检查均通过。",
       "observation": {
         "ok": true,

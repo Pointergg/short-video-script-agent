@@ -3,6 +3,7 @@
   "status": "failed",
   "message": "目标时长不足以容纳最小事实片段。",
   "provider": "mock",
+  "history_origin": "provider_driven",
   "model": "offline-simulator-v1",
   "input": {
     "topic": "字幕助手",
@@ -89,6 +90,7 @@
       "arguments": {
         "query": "字幕助手"
       },
+      "origin": "offline_simulator",
       "reason": "先检索主题对应的可引用事实。",
       "observation": {
         "ok": true,
@@ -193,6 +195,7 @@
           ]
         }
       },
+      "origin": "offline_simulator",
       "reason": "已找到事实，生成可审计草稿。",
       "observation": {
         "ok": true,
@@ -204,6 +207,7 @@
       "step": 3,
       "action": "estimate_duration",
       "arguments": {},
+      "origin": "offline_simulator",
       "reason": "草稿已更新，先检查时长。",
       "observation": {
         "ok": true,
@@ -255,6 +259,7 @@
           ]
         }
       },
+      "origin": "offline_simulator",
       "reason": "时长超限，按检查结果压缩铺垫并保留事实镜头，再次估算。",
       "observation": {
         "ok": true,
@@ -266,6 +271,7 @@
       "step": 5,
       "action": "estimate_duration",
       "arguments": {},
+      "origin": "offline_simulator",
       "reason": "草稿已更新，先检查时长。",
       "observation": {
         "ok": true,
@@ -294,6 +300,7 @@
       "arguments": {
         "message": "目标时长不足以容纳最小事实片段。"
       },
+      "origin": "offline_simulator",
       "reason": "最小事实片段仍超时，不能通过捏造语速满足限制。",
       "observation": {
         "ok": true,

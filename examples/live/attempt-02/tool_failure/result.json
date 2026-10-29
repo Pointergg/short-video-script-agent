@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "status": "failed",
+  "message": "素材检索工具不可用（SEARCH_UNAVAILABLE，不可重试），无法获取产品事实，不能编造脚本。",
+  "provider": "live",
+  "history_origin": "provider_driven",
+  "model": "deepseek-chat",
+  "input": {
+    "topic": "字幕助手",
+    "audience": "新手视频创作者",
+    "platform": "抖音",
+    "target_seconds": 30,
+    "style": "简洁介绍"
+  },
+  "corpus_sha256": "676b1490245439c3c6bace08d3258462e0425f15a27e29d704952ecf0168a4bc",
+  "script": null,
+  "draft": null,
+  "estimated_total_seconds": null,
+  "source_ids": [],
+  "sources": [],
+  "checks": {
+    "duration": null,
+    "rules": null
+  },
+  "questions": [],
+  "risks": [
+    "时长为文本启发式估算，未使用真实配音测量。",
+    "创意范围受已批准文案和画面白名单限制；任意语义改写需另行人工审核。",
+    "尚未进行真实平台政策、法律合规或最终视频审核。",
+    "任务未完成；draft 仅供排查，不能当作已验收脚本发布。"
+  ],
+  "steps_used": 2,
+  "max_steps": 14,
+  "elapsed_seconds": 2.422,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕助手"
+      },
+      "origin": "model",
+      "reason": "先检索产品素材，确认可用事实与画面。",
+      "observation": {
+        "ok": false,
+        "error": "SEARCH_UNAVAILABLE",
+        "retryable": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "fail",
+      "arguments": {
+        "message": "素材检索工具不可用（SEARCH_UNAVAILABLE，不可重试），无法获取产品事实，不能编造脚本。"
+      },
+      "origin": "model",
+      "reason": "检索工具不可恢复失败，缺少事实素材无法创作。",
+      "observation": {
+        "ok": true,
+        "status": "failed"
+      }
+    }
+  ]
+}

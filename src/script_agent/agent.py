@@ -3,7 +3,7 @@ import time
 from .tools import Toolset, fingerprint, validate_request, validate_corpus
 
 
-def run_agent(request, corpus, provider, max_steps=14, fail_search=False):
+def run_agent(request, corpus, provider, max_steps=14, fail_search=False, seed_script=None, seed_rule_check=False, seed_query=None):
     if not isinstance(request, dict):
         raise ValueError("request must be an object")
     validate_corpus(corpus)
@@ -15,7 +15,26 @@ def run_agent(request, corpus, provider, max_steps=14, fail_search=False):
     trace, questions = [], []
     status, message = "incomplete", "已达到执行步数上限，任务未完成。"
     started = time.monotonic()
-    for step in range(1, max_steps + 1):
+    if seed_query is not None:
+        if missing or seed_script is not None or max_steps < 2:
+            raise ValueError("seed_query requires valid input, no seed_script, and at least 2 steps")
+        trace.append({"step": 1, "origin": "test_fixture", "action": "search_materials",
+                      "arguments": {"query": seed_query}, "reason": "受控测试夹具执行，非模型选择",
+                      "observation": tools.search_materials(seed_query)})
+    if seed_script is not None:
+        if missing:
+            raise ValueError("cannot seed tools with missing request fields")
+        seed_actions = [("search_materials", {"query": seed_script["title"]}),
+                        ("write_script", {"script": seed_script}), ("estimate_duration", {})]
+        if seed_rule_check:
+            seed_actions.append(("check_rules", {}))
+        if len(seed_actions) >= max_steps:
+            raise ValueError("max_steps must allow model decisions after fixture tools")
+        for action, arguments in seed_actions:
+            trace.append({"step": len(trace) + 1, "origin": "test_fixture", "action": action, "arguments": arguments,
+                          "reason": "受控测试夹具执行，非模型选择", "observation": tools.execute(action, arguments)})
+    consecutive_model_errors = 0
+    for step in range(len(trace) + 1, max_steps + 1):
         try:
             decision = provider.decide(context, trace)
             if not isinstance(decision, dict) or not isinstance(decision.get("arguments"), dict) or not isinstance(decision.get("reason"), str):
@@ -24,10 +43,18 @@ def run_agent(request, corpus, provider, max_steps=14, fail_search=False):
             if not isinstance(action, str) or len(json.dumps(decision, ensure_ascii=False)) > 30000:
                 raise ValueError("Invalid or oversized decision")
         except Exception as error:
-            status, message = "failed", "模型调用或动作解析失败。"
+            consecutive_model_errors += 1
+            retryable = isinstance(error, RuntimeError) and str(error) in {
+                "MODEL_INVALID_RESPONSE", "MODEL_EMPTY_RESPONSE", "MODEL_OUTPUT_TRUNCATED", "MODEL_CONNECTION_FAILED", "MODEL_HTTP_429", "MODEL_HTTP_503"}
+            retry = retryable and consecutive_model_errors < 2 and step < max_steps
+            message = "模型调用或动作解析失败。" if not retry else "模型暂时失败；在执行预算内仅重试一次。"
+            status = "incomplete" if retry else "failed"
             trace.append({"step": step, "action": "model_error", "arguments": {}, "reason": message,
-                          "observation": {"ok": False, "error": str(error) if isinstance(error, RuntimeError) else type(error).__name__}})
+                          "observation": {"ok": False, "error": str(error) if isinstance(error, RuntimeError) else type(error).__name__, "retry_scheduled": retry}})
+            if retry:
+                continue
             break
+        consecutive_model_errors = 0
         if missing and action != "request_info":
             observation = {"ok": False, "error": "MISSING_REQUIRED_INPUT", "fields": missing}
         elif action == "finish":
@@ -53,9 +80,12 @@ def run_agent(request, corpus, provider, max_steps=14, fail_search=False):
             except (TypeError, ValueError, KeyError) as error:
                 observation = {"ok": False, "error": "INVALID_TOOL_ARGUMENTS", "detail": str(error)[:300]}
         trace.append({"step": step, "action": action, "arguments": arguments,
+                      "origin": "model" if provider.mode == "live" else "offline_simulator",
                       "reason": decision["reason"][:500], "observation": observation})
         if status != "incomplete":
             break
+    if status == "incomplete":
+        message = "已达到执行步数上限，任务未完成。"
     source_ids = sorted({s["source_id"] for scene in (tools.draft or {}).get("scenes", [])
                          for s in scene["segments"] if isinstance(s.get("source_id"), str)})
     risks = ["时长为文本启发式估算，未使用真实配音测量。", "创意范围受已批准文案和画面白名单限制；任意语义改写需另行人工审核。",
@@ -65,6 +95,7 @@ def run_agent(request, corpus, provider, max_steps=14, fail_search=False):
     if status != "completed":
         risks.append("任务未完成；draft 仅供排查，不能当作已验收脚本发布。")
     return {"schema_version": "1.0", "status": status, "message": message, "provider": provider.mode,
+            "history_origin": "fixture_seeded_then_provider" if seed_script is not None or seed_query is not None else "provider_driven",
             "model": provider.model, "input": request, "corpus_sha256": fingerprint(corpus),
             "script": tools.draft if status == "completed" else None,
             "draft": tools.draft if status != "completed" else None,

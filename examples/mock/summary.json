@@ -8,6 +8,9 @@
       "expected": "completed",
       "actual": "completed",
       "passed": true,
+      "behavior_checks": {
+        "latest_checks_pass": true
+      },
       "seconds": 31.0,
       "actions": [
         "search_materials",
@@ -23,6 +26,9 @@
       "expected": "completed",
       "actual": "completed",
       "passed": true,
+      "behavior_checks": {
+        "latest_checks_pass": true
+      },
       "seconds": 25.3,
       "actions": [
         "search_materials",
@@ -40,6 +46,9 @@
       "expected": "needs_input",
       "actual": "needs_input",
       "passed": true,
+      "behavior_checks": {
+        "no_business_tools": true
+      },
       "seconds": null,
       "actions": [
         "request_info"
@@ -51,6 +60,7 @@
       "expected": "needs_input",
       "actual": "needs_input",
       "passed": true,
+      "behavior_checks": {},
       "seconds": null,
       "actions": [
         "search_materials",
@@ -64,6 +74,9 @@
       "expected": "failed",
       "actual": "failed",
       "passed": true,
+      "behavior_checks": {
+        "explicit_model_failure": true
+      },
       "seconds": null,
       "actions": [
         "search_materials",
@@ -76,6 +89,9 @@
       "expected": "failed",
       "actual": "failed",
       "passed": true,
+      "behavior_checks": {
+        "explicit_model_failure": true
+      },
       "seconds": 1.5,
       "actions": [
         "search_materials",
@@ -92,6 +108,10 @@
       "expected": "completed",
       "actual": "completed",
       "passed": true,
+      "behavior_checks": {
+        "latest_checks_pass": true,
+        "search_recovered": true
+      },
       "seconds": 25.3,
       "actions": [
         "search_materials",
@@ -110,6 +130,7 @@
       "expected": "incomplete",
       "actual": "incomplete",
       "passed": true,
+      "behavior_checks": {},
       "seconds": null,
       "actions": [
         "search_materials",

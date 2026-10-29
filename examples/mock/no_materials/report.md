@@ -23,8 +23,8 @@
 
 ## 动作记录
 
-| 步骤 | 动作 | 简要依据 | 结果 |
-|---|---|---|---|
-| 1 | search_materials | 先检索主题对应的可引用事实。 | {"ok": true, "count": 0} |
-| 2 | search_materials | 首轮无结果，尝试更宽的产品关键词。 | {"ok": true, "count": 0} |
-| 3 | request_info | 改写后仍无素材，无法生成有事实依据的脚本。 | {"ok": true} |
+| 步骤 | 动作来源 | 动作 | 简要依据 | 结果 |
+|---|---|---|---|---|
+| 1 | offline_simulator | search_materials | 先检索主题对应的可引用事实。 | {"ok": true, "count": 0} |
+| 2 | offline_simulator | search_materials | 首轮无结果，尝试更宽的产品关键词。 | {"ok": true, "count": 0} |
+| 3 | offline_simulator | request_info | 改写后仍无素材，无法生成有事实依据的脚本。 | {"ok": true} |

@@ -1,0 +1,112 @@
+{
+  "provider": "live",
+  "model": "deepseek-chat",
+  "scope": "Live model observations; inspect traces for acceptance",
+  "cases": [
+    {
+      "case": "normal",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "seconds": 15.0,
+      "actions": [
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "evidence": "normal/result.json"
+    },
+    {
+      "case": "over_duration",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "seconds": 14.0,
+      "actions": [
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "evidence": "over_duration/result.json"
+    },
+    {
+      "case": "missing_info",
+      "expected": "needs_input",
+      "actual": "needs_input",
+      "passed": true,
+      "seconds": null,
+      "actions": [
+        "request_info"
+      ],
+      "evidence": "missing_info/result.json"
+    },
+    {
+      "case": "no_materials",
+      "expected": "needs_input",
+      "actual": "needs_input",
+      "passed": true,
+      "seconds": null,
+      "actions": [
+        "search_materials",
+        "search_materials",
+        "request_info"
+      ],
+      "evidence": "no_materials/result.json"
+    },
+    {
+      "case": "tool_failure",
+      "expected": "failed",
+      "actual": "failed",
+      "passed": true,
+      "seconds": null,
+      "actions": [
+        "search_materials",
+        "fail"
+      ],
+      "evidence": "tool_failure/result.json"
+    },
+    {
+      "case": "impossible_duration",
+      "expected": "failed",
+      "actual": "failed",
+      "passed": true,
+      "seconds": 4.0,
+      "actions": [
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "model_error"
+      ],
+      "evidence": "impossible_duration/result.json"
+    },
+    {
+      "case": "query_rewrite",
+      "expected": "completed",
+      "actual": "failed",
+      "passed": false,
+      "seconds": null,
+      "actions": [
+        "model_error"
+      ],
+      "evidence": "query_rewrite/result.json"
+    },
+    {
+      "case": "step_limit",
+      "expected": "incomplete",
+      "actual": "incomplete",
+      "passed": true,
+      "seconds": null,
+      "actions": [
+        "search_materials",
+        "write_script"
+      ],
+      "evidence": "step_limit/result.json"
+    }
+  ],
+  "passed": 7,
+  "total": 8
+}

@@ -1,0 +1,740 @@
+[
+  {
+    "probe": "duration_60",
+    "provider": "live",
+    "model": "deepseek-chat",
+    "history_origin": "test_fixture_with_actual_local_tool_results",
+    "input": {
+      "topic": "字幕助手",
+      "audience": "新手视频创作者",
+      "platform": "抖音",
+      "target_seconds": 60,
+      "style": "简洁介绍"
+    },
+    "seeded_trace": [
+      {
+        "step": 1,
+        "action": "search_materials",
+        "arguments": {
+          "query": "字幕"
+        },
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "materials": [
+            {
+              "id": "P01",
+              "product": "字幕助手",
+              "tags": [
+                "字幕",
+                "产品",
+                "字幕助手"
+              ],
+              "facts": [
+                "支持字幕"
+              ],
+              "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+            }
+          ],
+          "count": 1
+        }
+      },
+      {
+        "step": 2,
+        "action": "write_script",
+        "arguments": {
+          "script": {
+            "title": "字幕助手",
+            "scenes": [
+              {
+                "visual": "产品名称卡片",
+                "visual_seconds": 0,
+                "segments": [
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "你的视频，需要字幕吗？"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "把注意力放在表达上。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "一起看看。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "欢迎了解。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "你的视频，需要字幕吗？"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "把注意力放在表达上。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "一起看看。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "欢迎了解。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  }
+                ]
+              },
+              {
+                "visual": "字幕功能文字卡片",
+                "visual_seconds": 0,
+                "segments": [
+                  {
+                    "kind": "fact",
+                    "text": "支持字幕",
+                    "source_id": "P01"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+          "scene_count": 2
+        }
+      },
+      {
+        "step": 3,
+        "action": "estimate_duration",
+        "arguments": {},
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+          "scenes": [
+            {
+              "scene": 1,
+              "start_seconds": 0,
+              "seconds": 29.5,
+              "end_seconds": 29.5,
+              "source_ids": [],
+              "speech_units": 97
+            },
+            {
+              "scene": 2,
+              "start_seconds": 29.5,
+              "seconds": 1.5,
+              "end_seconds": 31.0,
+              "source_ids": [
+                "P01"
+              ],
+              "speech_units": 4
+            }
+          ],
+          "total_seconds": 31.0,
+          "limit_seconds": 60,
+          "within_limit": true,
+          "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+        }
+      }
+    ],
+    "actual_model_decision": {
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "草稿在时长上限内，下一步核验事实引用与品牌规则"
+    },
+    "expected_actions": [
+      "check_rules"
+    ],
+    "passed": true
+  },
+  {
+    "probe": "duration_30",
+    "provider": "live",
+    "model": "deepseek-chat",
+    "history_origin": "test_fixture_with_actual_local_tool_results",
+    "input": {
+      "topic": "字幕助手",
+      "audience": "新手视频创作者",
+      "platform": "抖音",
+      "target_seconds": 30,
+      "style": "简洁介绍"
+    },
+    "seeded_trace": [
+      {
+        "step": 1,
+        "action": "search_materials",
+        "arguments": {
+          "query": "字幕"
+        },
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "materials": [
+            {
+              "id": "P01",
+              "product": "字幕助手",
+              "tags": [
+                "字幕",
+                "产品",
+                "字幕助手"
+              ],
+              "facts": [
+                "支持字幕"
+              ],
+              "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+            }
+          ],
+          "count": 1
+        }
+      },
+      {
+        "step": 2,
+        "action": "write_script",
+        "arguments": {
+          "script": {
+            "title": "字幕助手",
+            "scenes": [
+              {
+                "visual": "产品名称卡片",
+                "visual_seconds": 0,
+                "segments": [
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "你的视频，需要字幕吗？"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "把注意力放在表达上。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "一起看看。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "欢迎了解。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "你的视频，需要字幕吗？"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "把注意力放在表达上。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "一起看看。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "欢迎了解。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  }
+                ]
+              },
+              {
+                "visual": "字幕功能文字卡片",
+                "visual_seconds": 0,
+                "segments": [
+                  {
+                    "kind": "fact",
+                    "text": "支持字幕",
+                    "source_id": "P01"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+          "scene_count": 2
+        }
+      },
+      {
+        "step": 3,
+        "action": "estimate_duration",
+        "arguments": {},
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "draft_id": "be2ec6074bd705c746016c19e35263a1863451ff2061f7fc818d4231fb46257f",
+          "scenes": [
+            {
+              "scene": 1,
+              "start_seconds": 0,
+              "seconds": 29.5,
+              "end_seconds": 29.5,
+              "source_ids": [],
+              "speech_units": 97
+            },
+            {
+              "scene": 2,
+              "start_seconds": 29.5,
+              "seconds": 1.5,
+              "end_seconds": 31.0,
+              "source_ids": [
+                "P01"
+              ],
+              "speech_units": 4
+            }
+          ],
+          "total_seconds": 31.0,
+          "limit_seconds": 30,
+          "within_limit": false,
+          "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+        }
+      }
+    ],
+    "actual_model_decision": {
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕助手",
+          "scenes": [
+            {
+              "visual": "产品名称卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                },
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                }
+              ]
+            },
+            {
+              "visual": "字幕功能文字卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "fact",
+                  "text": "支持字幕",
+                  "source_id": "P01"
+                }
+              ]
+            },
+            {
+              "visual": "创作者场景示意（非产品界面）",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "把注意力放在表达上。"
+                }
+              ]
+            },
+            {
+              "visual": "结尾文字卡片",
+              "visual_seconds": 0,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "欢迎了解。"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "reason": "原草稿31秒超限，删减重复旁白并保留事实引用，重新估算"
+    },
+    "expected_actions": [
+      "write_script",
+      "fail"
+    ],
+    "passed": true
+  },
+  {
+    "probe": "empty_search",
+    "provider": "live",
+    "model": "deepseek-chat",
+    "history_origin": "test_fixture_with_actual_local_tool_results",
+    "input": {
+      "topic": "字幕助手",
+      "audience": "新手视频创作者",
+      "platform": "抖音",
+      "target_seconds": 30,
+      "style": "简洁介绍"
+    },
+    "seeded_trace": [
+      {
+        "step": 1,
+        "action": "search_materials",
+        "arguments": {
+          "query": "字幕"
+        },
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "materials": [],
+          "count": 0
+        }
+      }
+    ],
+    "actual_model_decision": {
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕助手 产品 功能"
+      },
+      "reason": "首次检索“字幕”无结果，改写查询再检索素材"
+    },
+    "expected_actions": [
+      "search_materials",
+      "request_info"
+    ],
+    "passed": true
+  },
+  {
+    "probe": "search_failure",
+    "provider": "live",
+    "model": "deepseek-chat",
+    "history_origin": "test_fixture_with_actual_local_tool_results",
+    "input": {
+      "topic": "字幕助手",
+      "audience": "新手视频创作者",
+      "platform": "抖音",
+      "target_seconds": 30,
+      "style": "简洁介绍"
+    },
+    "seeded_trace": [
+      {
+        "step": 1,
+        "action": "search_materials",
+        "arguments": {
+          "query": "字幕"
+        },
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": false,
+          "error": "SEARCH_UNAVAILABLE",
+          "retryable": false
+        }
+      }
+    ],
+    "actual_model_decision": {
+      "action": "fail",
+      "arguments": {
+        "message": "素材检索工具不可用且不可重试，无法获取产品事实，不能编造脚本。"
+      },
+      "reason": "search_materials 返回 SEARCH_UNAVAILABLE 且 retryable=false，无可用事实素材。"
+    },
+    "expected_actions": [
+      "fail",
+      "request_info"
+    ],
+    "passed": true
+  },
+  {
+    "probe": "unsupported_fact",
+    "provider": "live",
+    "model": "deepseek-chat",
+    "history_origin": "test_fixture_with_actual_local_tool_results",
+    "input": {
+      "topic": "字幕助手",
+      "audience": "新手视频创作者",
+      "platform": "抖音",
+      "target_seconds": 30,
+      "style": "简洁介绍"
+    },
+    "seeded_trace": [
+      {
+        "step": 1,
+        "action": "search_materials",
+        "arguments": {
+          "query": "字幕"
+        },
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "materials": [
+            {
+              "id": "P01",
+              "product": "字幕助手",
+              "tags": [
+                "字幕",
+                "产品",
+                "字幕助手"
+              ],
+              "facts": [
+                "支持字幕"
+              ],
+              "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+            }
+          ],
+          "count": 1
+        }
+      },
+      {
+        "step": 2,
+        "action": "write_script",
+        "arguments": {
+          "script": {
+            "title": "字幕助手",
+            "scenes": [
+              {
+                "visual": "产品名称卡片",
+                "visual_seconds": 0,
+                "segments": [
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "你的视频，需要字幕吗？"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "把注意力放在表达上。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "一起看看。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "欢迎了解。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "你的视频，需要字幕吗？"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "把注意力放在表达上。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "一起看看。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "欢迎了解。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "今天，聊聊字幕。"
+                  },
+                  {
+                    "kind": "neutral",
+                    "text": "让我们看看这个功能。"
+                  }
+                ]
+              },
+              {
+                "visual": "字幕功能文字卡片",
+                "visual_seconds": 0,
+                "segments": [
+                  {
+                    "kind": "fact",
+                    "text": "效率提升80%",
+                    "source_id": "P01"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "draft_id": "5d361890e60af8da435636cf1b90197df16cf6c8f0f90303d11d130ad775a4a3",
+          "scene_count": 2
+        }
+      },
+      {
+        "step": 3,
+        "action": "estimate_duration",
+        "arguments": {},
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "draft_id": "5d361890e60af8da435636cf1b90197df16cf6c8f0f90303d11d130ad775a4a3",
+          "scenes": [
+            {
+              "scene": 1,
+              "start_seconds": 0,
+              "seconds": 29.5,
+              "end_seconds": 29.5,
+              "source_ids": [],
+              "speech_units": 97
+            },
+            {
+              "scene": 2,
+              "start_seconds": 29.5,
+              "seconds": 1.8,
+              "end_seconds": 31.3,
+              "source_ids": [
+                "P01"
+              ],
+              "speech_units": 5
+            }
+          ],
+          "total_seconds": 31.3,
+          "limit_seconds": 30,
+          "within_limit": false,
+          "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+        }
+      },
+      {
+        "step": 4,
+        "action": "check_rules",
+        "arguments": {},
+        "reason": "受控测试夹具执行，非模型选择",
+        "observation": {
+          "ok": true,
+          "draft_id": "5d361890e60af8da435636cf1b90197df16cf6c8f0f90303d11d130ad775a4a3",
+          "passed": false,
+          "issues": [
+            "scene_2:FORBIDDEN_BRAND_TERM",
+            "scene_2:UNSUPPORTED_FACT",
+            "NO_SUPPORTED_FACT"
+          ],
+          "scenes": [
+            {
+              "scene": 1,
+              "passed": true,
+              "source_ids": [],
+              "issues": []
+            },
+            {
+              "scene": 2,
+              "passed": false,
+              "source_ids": [],
+              "issues": [
+                "FORBIDDEN_BRAND_TERM",
+                "UNSUPPORTED_FACT"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "actual_model_decision": {
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕助手",
+          "scenes": [
+            {
+              "visual": "产品名称卡片",
+              "visual_seconds": 2,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                }
+              ]
+            },
+            {
+              "visual": "字幕功能文字卡片",
+              "visual_seconds": 2,
+              "segments": [
+                {
+                  "kind": "fact",
+                  "text": "支持字幕",
+                  "source_id": "P01"
+                }
+              ]
+            },
+            {
+              "visual": "创作者场景示意（非产品界面）",
+              "visual_seconds": 2,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                }
+              ]
+            },
+            {
+              "visual": "结尾文字卡片",
+              "visual_seconds": 2,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "把注意力放在表达上。"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "reason": "删除禁用词与无依据事实，改为逐字引用P01的facts，并精简旁白以控制时长"
+    },
+    "expected_actions": [
+      "write_script",
+      "fail"
+    ],
+    "passed": true
+  }
+]

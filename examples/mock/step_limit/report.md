@@ -22,7 +22,7 @@
 
 ## 动作记录
 
-| 步骤 | 动作 | 简要依据 | 结果 |
-|---|---|---|---|
-| 1 | search_materials | 先检索主题对应的可引用事实。 | {"ok": true, "count": 1} |
-| 2 | write_script | 已找到事实，生成可审计草稿。 | {"ok": true} |
+| 步骤 | 动作来源 | 动作 | 简要依据 | 结果 |
+|---|---|---|---|---|
+| 1 | offline_simulator | search_materials | 先检索主题对应的可引用事实。 | {"ok": true, "count": 1} |
+| 2 | offline_simulator | write_script | 已找到事实，生成可审计草稿。 | {"ok": true} |

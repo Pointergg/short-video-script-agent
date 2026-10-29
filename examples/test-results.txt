@@ -17,9 +17,14 @@ test_over_duration_is_revised_then_rechecked (test_agent.AgentTests.test_over_du
 test_oversized_or_negative_draft_is_rejected (test_agent.AgentTests.test_oversized_or_negative_draft_is_rejected) ... ok
 test_premature_finish_is_rejected (test_agent.AgentTests.test_premature_finish_is_rejected) ... ok
 test_query_rewrite_can_recover (test_agent.AgentTests.test_query_rewrite_can_recover) ... ok
+test_repeated_model_errors_stop (test_agent.AgentTests.test_repeated_model_errors_stop) ... ok
+test_seeded_observations_are_actual_and_labeled (test_agent.AgentTests.test_seeded_observations_are_actual_and_labeled) ... ok
 test_step_limit_explicitly_incomplete (test_agent.AgentTests.test_step_limit_explicitly_incomplete) ... ok
 test_tool_failure_is_not_success (test_agent.AgentTests.test_tool_failure_is_not_success) ... ok
+test_transient_model_error_retries_once_within_budget (test_agent.AgentTests.test_transient_model_error_retries_once_within_budget) ... ok
 test_unretrieved_fact_not_accepted (test_agent.AgentTests.test_unretrieved_fact_not_accepted) ... ok
+test_api_error_cannot_pass_impossible_duration_acceptance (test_evaluation.EvaluationTests.test_api_error_cannot_pass_impossible_duration_acceptance) ... ok
+test_direct_search_hit_is_not_rewrite_evidence (test_evaluation.EvaluationTests.test_direct_search_hit_is_not_rewrite_evidence) ... ok
 test_broken_response_is_explicit_failure (test_provider.ProviderTests.test_broken_response_is_explicit_failure) ... ok
 test_http_error_body_does_not_leak (test_provider.ProviderTests.test_http_error_body_does_not_leak) ... ok
 test_json_action_transport (test_provider.ProviderTests.test_json_action_transport) ... ok
@@ -27,6 +32,6 @@ test_missing_key_and_insecure_endpoint_rejected (test_provider.ProviderTests.tes
 test_timeout_fails_instead_of_switching_to_mock (test_provider.ProviderTests.test_timeout_fails_instead_of_switching_to_mock) ... ok
 
 ----------------------------------------------------------------------
-Ran 27 tests in 0.023s
+Ran 32 tests in 0.027s
 
 OK

@@ -51,7 +51,13 @@ class OpenAICompatibleProvider:
             if len(data) > 1_000_000:
                 raise ValueError("Oversized model response")
             result = json.loads(data)
-            return json.loads(result["choices"][0]["message"]["content"])
+            choice = result["choices"][0]
+            if choice.get("finish_reason") == "length":
+                raise RuntimeError("MODEL_OUTPUT_TRUNCATED")
+            content = choice["message"]["content"]
+            if not isinstance(content, str) or not content.strip():
+                raise RuntimeError("MODEL_EMPTY_RESPONSE")
+            return json.loads(content)
         except urllib.error.HTTPError as error:
             # Never persist response bodies: gateways can echo credentials or private inputs.
             raise RuntimeError(f"MODEL_HTTP_{error.code}") from None

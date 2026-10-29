@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0",
+  "status": "failed",
+  "message": "模型调用或动作解析失败。",
+  "provider": "live",
+  "model": "deepseek-chat",
+  "input": {
+    "topic": "字幕助手",
+    "audience": "新手视频创作者",
+    "platform": "抖音",
+    "target_seconds": 1,
+    "style": "简洁介绍"
+  },
+  "corpus_sha256": "676b1490245439c3c6bace08d3258462e0425f15a27e29d704952ecf0168a4bc",
+  "script": null,
+  "draft": {
+    "title": "字幕助手",
+    "scenes": [
+      {
+        "visual": "产品名称卡片",
+        "visual_seconds": 0.5,
+        "segments": [
+          {
+            "kind": "fact",
+            "text": "支持字幕",
+            "source_id": "P01"
+          }
+        ]
+      },
+      {
+        "visual": "字幕功能文字卡片",
+        "visual_seconds": 0.5,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          }
+        ]
+      }
+    ]
+  },
+  "estimated_total_seconds": 4.0,
+  "source_ids": [
+    "P01"
+  ],
+  "sources": [
+    {
+      "id": "P01",
+      "product": "字幕助手",
+      "tags": [
+        "字幕",
+        "产品",
+        "字幕助手"
+      ],
+      "facts": [
+        "支持字幕"
+      ],
+      "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+    }
+  ],
+  "checks": {
+    "duration": {
+      "ok": true,
+      "draft_id": "a199f4dca5c1d768f599a977608ac5dbfe48f76eb73115a1f6a6805fcd2ee37a",
+      "scenes": [
+        {
+          "scene": 1,
+          "start_seconds": 0,
+          "seconds": 1.5,
+          "end_seconds": 1.5,
+          "source_ids": [
+            "P01"
+          ],
+          "speech_units": 4
+        },
+        {
+          "scene": 2,
+          "start_seconds": 1.5,
+          "seconds": 2.5,
+          "end_seconds": 4.0,
+          "source_ids": [],
+          "speech_units": 6
+        }
+      ],
+      "total_seconds": 4.0,
+      "limit_seconds": 1,
+      "within_limit": false,
+      "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+    },
+    "rules": null
+  },
+  "questions": [],
+  "risks": [
+    "时长为文本启发式估算，未使用真实配音测量。",
+    "创意范围受已批准文案和画面白名单限制；任意语义改写需另行人工审核。",
+    "尚未进行真实平台政策、法律合规或最终视频审核。",
+    "任务未完成；draft 仅供排查，不能当作已验收脚本发布。"
+  ],
+  "steps_used": 4,
+  "max_steps": 14,
+  "elapsed_seconds": 5.016,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕助手"
+      },
+      "reason": "先检索产品素材以获取可引用的事实与标题",
+      "observation": {
+        "ok": true,
+        "materials": [
+          {
+            "id": "P01",
+            "product": "字幕助手",
+            "tags": [
+              "字幕",
+              "产品",
+              "字幕助手"
+            ],
+            "facts": [
+              "支持字幕"
+            ],
+            "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "step": 2,
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕助手",
+          "scenes": [
+            {
+              "visual": "产品名称卡片",
+              "visual_seconds": 0.5,
+              "segments": [
+                {
+                  "kind": "fact",
+                  "text": "支持字幕",
+                  "source_id": "P01"
+                }
+              ]
+            },
+            {
+              "visual": "字幕功能文字卡片",
+              "visual_seconds": 0.5,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "reason": "已检索到产品事实，用一条fact与一条neutral_copy组成1秒内简洁脚本",
+      "observation": {
+        "ok": true,
+        "draft_id": "a199f4dca5c1d768f599a977608ac5dbfe48f76eb73115a1f6a6805fcd2ee37a",
+        "scene_count": 2
+      }
+    },
+    {
+      "step": 3,
+      "action": "estimate_duration",
+      "arguments": {},
+      "reason": "先估算当前两镜草稿是否超过1秒上限",
+      "observation": {
+        "ok": true,
+        "draft_id": "a199f4dca5c1d768f599a977608ac5dbfe48f76eb73115a1f6a6805fcd2ee37a",
+        "scenes": [
+          {
+            "scene": 1,
+            "start_seconds": 0,
+            "seconds": 1.5,
+            "end_seconds": 1.5,
+            "source_ids": [
+              "P01"
+            ],
+            "speech_units": 4
+          },
+          {
+            "scene": 2,
+            "start_seconds": 1.5,
+            "seconds": 2.5,
+            "end_seconds": 4.0,
+            "source_ids": [],
+            "speech_units": 6
+          }
+        ],
+        "total_seconds": 4.0,
+        "limit_seconds": 1,
+        "within_limit": false,
+        "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+      }
+    },
+    {
+      "step": 4,
+      "action": "model_error",
+      "arguments": {},
+      "reason": "模型调用或动作解析失败。",
+      "observation": {
+        "ok": false,
+        "error": "MODEL_INVALID_RESPONSE"
+      }
+    }
+  ]
+}

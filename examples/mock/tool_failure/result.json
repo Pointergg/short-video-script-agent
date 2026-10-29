@@ -3,6 +3,7 @@
   "status": "failed",
   "message": "工具失败：SEARCH_UNAVAILABLE",
   "provider": "mock",
+  "history_origin": "provider_driven",
   "model": "offline-simulator-v1",
   "input": {
     "topic": "字幕助手",
@@ -39,6 +40,7 @@
       "arguments": {
         "query": "字幕助手"
       },
+      "origin": "offline_simulator",
       "reason": "先检索主题对应的可引用事实。",
       "observation": {
         "ok": false,
@@ -52,6 +54,7 @@
       "arguments": {
         "message": "工具失败：SEARCH_UNAVAILABLE"
       },
+      "origin": "offline_simulator",
       "reason": "工具失败且本次没有可靠替代事实来源。",
       "observation": {
         "ok": true,

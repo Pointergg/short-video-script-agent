@@ -4,11 +4,11 @@
 
 Python 原生工具循环 · OpenAI 兼容接口 · 离线 Mock · 逐镜来源和时间线 · 无运行时第三方依赖
 
-> 当前离线证据可以直接复现。真实模型入口已实现；是否有已执行 live 记录，请以 [评估报告](docs/03-evaluation.md) 为准。Mock 不作为真实模型 ReAct 达标证据。
+> 已接入 **DeepSeek `deepseek-chat`** 并保存真实运行记录。自然生成路径、受控反馈实验、离线 Mock 分别标注；失败尝试也保留。详见 [评估报告](docs/03-evaluation.md)。
 
 ## 评审先看这三处
 
-- [超时长修正的实际输出与动作](examples/mock/over_duration/report.md)：完整 JSON 含每轮参数及真实本地工具结果。
+- [真实模型超时长修正](examples/live/controlled_over_duration/report.md)：工具计算的偏长草稿由测试夹具提供，后续改稿、复查、结束均由模型决策。
 - [验收结果与限制](docs/03-evaluation.md)：覆盖全部题目场景，不把测试通过当作模型准确率。
 - [方案与事实守卫](docs/02-solution.md)：P01 仅“支持字幕”，不允许扩写成“自动识别”或“效率提升80%”。
 
@@ -21,6 +21,7 @@ python -m pip install -e .
 python -m script_agent.cli --provider mock --input examples/inputs/over_duration.json --output runs/demo
 python -m unittest discover -s tests -v
 python scripts/evaluate.py --provider mock
+python scripts/verify_evidence.py
 ```
 
 不安装包也可运行：PowerShell 先 `$env:PYTHONPATH='src'`；Bash 先 `export PYTHONPATH=src`，再执行上面 Python 命令。Mock 无需配置环境变量、API 或 GPU。`result.json` 是可编辑结构化输出，`report.md` 是分镜表与简短动作记录。
@@ -80,6 +81,7 @@ tests/            # 正向、故障、篡改与反馈差异测试
 data/             # 合成事实与品牌白名单
 examples/inputs/  # 可复用输入
 examples/mock/    # 实际离线输出、逐步 Trace、分镜报告
+examples/live/    # DeepSeek 实际输出、受控反馈、保留失败尝试
 scripts/          # 一键生成验收证据
 docs/             # 需求、方案、评估、AI 使用、复盘
 .github/workflows/# Python 3.11–3.13 离线 CI

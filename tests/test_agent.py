@@ -199,6 +199,31 @@ class AgentTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "permits only"):
             tools.write_script(self.script)
 
+    def test_transient_model_error_retries_once_within_budget(self):
+        class Flaky(SequenceProvider):
+            def decide(self, context, trace):
+                if not trace:
+                    raise RuntimeError("MODEL_EMPTY_RESPONSE")
+                return decision("fail", message="explicit stop")
+        result = run_agent(self.request, self.corpus, Flaky([]))
+        self.assertTrue(result["trace"][0]["observation"]["retry_scheduled"])
+        self.assertEqual(result["steps_used"], 2)
+        self.assertEqual(result["trace"][-1]["action"], "fail")
+
+    def test_repeated_model_errors_stop(self):
+        class Broken(SequenceProvider):
+            def decide(self, context, trace):
+                raise RuntimeError("MODEL_EMPTY_RESPONSE")
+        result = run_agent(self.request, self.corpus, Broken([]))
+        self.assertEqual(result["status"], "failed")
+        self.assertEqual(result["steps_used"], 2)
+
+    def test_seeded_observations_are_actual_and_labeled(self):
+        result = run_agent(self.request, self.corpus, SequenceProvider([decision("check_rules"), decision("finish")]), seed_script=self.script)
+        self.assertEqual(result["status"], "completed")
+        self.assertEqual(result["trace"][0]["origin"], "test_fixture")
+        self.assertEqual(result["trace"][2]["observation"]["total_seconds"], 1.5)
+
 
 if __name__ == "__main__":
     unittest.main()

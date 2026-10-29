@@ -1,0 +1,184 @@
+{
+  "provider": "live",
+  "model": "deepseek-chat",
+  "scope": "Live model observations; inspect traces for acceptance",
+  "cases": [
+    {
+      "case": "normal",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "behavior_checks": {
+        "latest_checks_pass": true
+      },
+      "seconds": 14.0,
+      "actions": [
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "evidence": "normal/result.json"
+    },
+    {
+      "case": "over_duration",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "behavior_checks": {
+        "latest_checks_pass": true
+      },
+      "seconds": 20.0,
+      "actions": [
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "evidence": "over_duration/result.json"
+    },
+    {
+      "case": "missing_info",
+      "expected": "needs_input",
+      "actual": "needs_input",
+      "passed": true,
+      "behavior_checks": {
+        "no_business_tools": true
+      },
+      "seconds": null,
+      "actions": [
+        "request_info"
+      ],
+      "evidence": "missing_info/result.json"
+    },
+    {
+      "case": "no_materials",
+      "expected": "needs_input",
+      "actual": "needs_input",
+      "passed": true,
+      "behavior_checks": {},
+      "seconds": null,
+      "actions": [
+        "search_materials",
+        "search_materials",
+        "request_info"
+      ],
+      "evidence": "no_materials/result.json"
+    },
+    {
+      "case": "tool_failure",
+      "expected": "failed",
+      "actual": "failed",
+      "passed": true,
+      "behavior_checks": {
+        "explicit_model_failure": true
+      },
+      "seconds": null,
+      "actions": [
+        "search_materials",
+        "fail"
+      ],
+      "evidence": "tool_failure/result.json"
+    },
+    {
+      "case": "impossible_duration",
+      "expected": "failed",
+      "actual": "failed",
+      "passed": true,
+      "behavior_checks": {
+        "explicit_model_failure": true
+      },
+      "seconds": 1.5,
+      "actions": [
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "write_script",
+        "estimate_duration",
+        "fail"
+      ],
+      "evidence": "impossible_duration/result.json"
+    },
+    {
+      "case": "query_rewrite",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "behavior_checks": {
+        "latest_checks_pass": true,
+        "search_recovered": true
+      },
+      "seconds": 15.0,
+      "actions": [
+        "search_materials",
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "evidence": "query_rewrite/result.json"
+    },
+    {
+      "case": "step_limit",
+      "expected": "incomplete",
+      "actual": "incomplete",
+      "passed": true,
+      "behavior_checks": {},
+      "seconds": null,
+      "actions": [
+        "search_materials",
+        "write_script"
+      ],
+      "evidence": "step_limit/result.json"
+    },
+    {
+      "case": "controlled_over_duration",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "behavior_checks": {
+        "latest_checks_pass": true,
+        "observed_over_then_under": true,
+        "model_rewrote": true
+      },
+      "seconds": 11.1,
+      "actions": [
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "write_script",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "evidence": "controlled_over_duration/result.json"
+    },
+    {
+      "case": "controlled_rule_repair",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "behavior_checks": {
+        "latest_checks_pass": true,
+        "observed_rule_repair": true
+      },
+      "seconds": 11.6,
+      "actions": [
+        "search_materials",
+        "write_script",
+        "estimate_duration",
+        "check_rules",
+        "write_script",
+        "estimate_duration",
+        "check_rules",
+        "finish"
+      ],
+      "evidence": "controlled_rule_repair/result.json"
+    }
+  ],
+  "passed": 10,
+  "total": 10
+}

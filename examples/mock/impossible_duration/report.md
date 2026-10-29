@@ -22,11 +22,11 @@
 
 ## 动作记录
 
-| 步骤 | 动作 | 简要依据 | 结果 |
-|---|---|---|---|
-| 1 | search_materials | 先检索主题对应的可引用事实。 | {"ok": true, "count": 1} |
-| 2 | write_script | 已找到事实，生成可审计草稿。 | {"ok": true} |
-| 3 | estimate_duration | 草稿已更新，先检查时长。 | {"ok": true, "total_seconds": 31.0, "within_limit": false} |
-| 4 | write_script | 时长超限，按检查结果压缩铺垫并保留事实镜头，再次估算。 | {"ok": true} |
-| 5 | estimate_duration | 草稿已更新，先检查时长。 | {"ok": true, "total_seconds": 1.5, "within_limit": false} |
-| 6 | fail | 最小事实片段仍超时，不能通过捏造语速满足限制。 | {"ok": true, "status": "failed"} |
+| 步骤 | 动作来源 | 动作 | 简要依据 | 结果 |
+|---|---|---|---|---|
+| 1 | offline_simulator | search_materials | 先检索主题对应的可引用事实。 | {"ok": true, "count": 1} |
+| 2 | offline_simulator | write_script | 已找到事实，生成可审计草稿。 | {"ok": true} |
+| 3 | offline_simulator | estimate_duration | 草稿已更新，先检查时长。 | {"ok": true, "total_seconds": 31.0, "within_limit": false} |
+| 4 | offline_simulator | write_script | 时长超限，按检查结果压缩铺垫并保留事实镜头，再次估算。 | {"ok": true} |
+| 5 | offline_simulator | estimate_duration | 草稿已更新，先检查时长。 | {"ok": true, "total_seconds": 1.5, "within_limit": false} |
+| 6 | offline_simulator | fail | 最小事实片段仍超时，不能通过捏造语速满足限制。 | {"ok": true, "status": "failed"} |

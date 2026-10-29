@@ -1,0 +1,80 @@
+{
+  "seed_script": {
+    "title": "字幕助手",
+    "scenes": [
+      {
+        "visual": "产品名称卡片",
+        "visual_seconds": 0,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          },
+          {
+            "kind": "neutral",
+            "text": "让我们看看这个功能。"
+          },
+          {
+            "kind": "neutral",
+            "text": "你的视频，需要字幕吗？"
+          },
+          {
+            "kind": "neutral",
+            "text": "把注意力放在表达上。"
+          },
+          {
+            "kind": "neutral",
+            "text": "一起看看。"
+          },
+          {
+            "kind": "neutral",
+            "text": "欢迎了解。"
+          },
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          },
+          {
+            "kind": "neutral",
+            "text": "让我们看看这个功能。"
+          },
+          {
+            "kind": "neutral",
+            "text": "你的视频，需要字幕吗？"
+          },
+          {
+            "kind": "neutral",
+            "text": "把注意力放在表达上。"
+          },
+          {
+            "kind": "neutral",
+            "text": "一起看看。"
+          },
+          {
+            "kind": "neutral",
+            "text": "欢迎了解。"
+          },
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          },
+          {
+            "kind": "neutral",
+            "text": "让我们看看这个功能。"
+          }
+        ]
+      },
+      {
+        "visual": "字幕功能文字卡片",
+        "visual_seconds": 0,
+        "segments": [
+          {
+            "kind": "fact",
+            "text": "支持字幕",
+            "source_id": "P01"
+          }
+        ]
+      }
+    ]
+  }
+}

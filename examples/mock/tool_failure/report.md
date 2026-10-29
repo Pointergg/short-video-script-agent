@@ -22,7 +22,7 @@
 
 ## 动作记录
 
-| 步骤 | 动作 | 简要依据 | 结果 |
-|---|---|---|---|
-| 1 | search_materials | 先检索主题对应的可引用事实。 | {"ok": false, "error": "SEARCH_UNAVAILABLE"} |
-| 2 | fail | 工具失败且本次没有可靠替代事实来源。 | {"ok": true, "status": "failed"} |
+| 步骤 | 动作来源 | 动作 | 简要依据 | 结果 |
+|---|---|---|---|---|
+| 1 | offline_simulator | search_materials | 先检索主题对应的可引用事实。 | {"ok": false, "error": "SEARCH_UNAVAILABLE"} |
+| 2 | offline_simulator | fail | 工具失败且本次没有可靠替代事实来源。 | {"ok": true, "status": "failed"} |

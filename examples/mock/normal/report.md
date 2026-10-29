@@ -26,10 +26,10 @@
 
 ## 动作记录
 
-| 步骤 | 动作 | 简要依据 | 结果 |
-|---|---|---|---|
-| 1 | search_materials | 先检索主题对应的可引用事实。 | {"ok": true, "count": 1} |
-| 2 | write_script | 已找到事实，生成可审计草稿。 | {"ok": true} |
-| 3 | estimate_duration | 草稿已更新，先检查时长。 | {"ok": true, "total_seconds": 31.0, "within_limit": true} |
-| 4 | check_rules | 时长合格，核对事实来源和品牌规则。 | {"ok": true, "passed": true, "issues": []} |
-| 5 | finish | 最新草稿的时长和事实规则检查均通过。 | {"ok": true, "status": "completed"} |
+| 步骤 | 动作来源 | 动作 | 简要依据 | 结果 |
+|---|---|---|---|---|
+| 1 | offline_simulator | search_materials | 先检索主题对应的可引用事实。 | {"ok": true, "count": 1} |
+| 2 | offline_simulator | write_script | 已找到事实，生成可审计草稿。 | {"ok": true} |
+| 3 | offline_simulator | estimate_duration | 草稿已更新，先检查时长。 | {"ok": true, "total_seconds": 31.0, "within_limit": true} |
+| 4 | offline_simulator | check_rules | 时长合格，核对事实来源和品牌规则。 | {"ok": true, "passed": true, "issues": []} |
+| 5 | offline_simulator | finish | 最新草稿的时长和事实规则检查均通过。 | {"ok": true, "status": "completed"} |

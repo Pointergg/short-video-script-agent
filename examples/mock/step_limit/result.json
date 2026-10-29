@@ -3,6 +3,7 @@
   "status": "incomplete",
   "message": "已达到执行步数上限，任务未完成。",
   "provider": "mock",
+  "history_origin": "provider_driven",
   "model": "offline-simulator-v1",
   "input": {
     "topic": "字幕助手",
@@ -132,6 +133,7 @@
       "arguments": {
         "query": "字幕助手"
       },
+      "origin": "offline_simulator",
       "reason": "先检索主题对应的可引用事实。",
       "observation": {
         "ok": true,
@@ -236,6 +238,7 @@
           ]
         }
       },
+      "origin": "offline_simulator",
       "reason": "已找到事实，生成可审计草稿。",
       "observation": {
         "ok": true,

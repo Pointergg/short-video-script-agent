@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "status": "incomplete",
+  "message": "已达到执行步数上限，任务未完成。",
+  "provider": "live",
+  "history_origin": "provider_driven",
+  "model": "deepseek-chat",
+  "input": {
+    "topic": "字幕助手",
+    "audience": "新手视频创作者",
+    "platform": "抖音",
+    "target_seconds": 30,
+    "style": "简洁介绍"
+  },
+  "corpus_sha256": "676b1490245439c3c6bace08d3258462e0425f15a27e29d704952ecf0168a4bc",
+  "script": null,
+  "draft": {
+    "title": "字幕助手",
+    "scenes": [
+      {
+        "visual": "产品名称卡片",
+        "visual_seconds": 3,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          }
+        ]
+      },
+      {
+        "visual": "字幕功能文字卡片",
+        "visual_seconds": 4,
+        "segments": [
+          {
+            "kind": "fact",
+            "text": "支持字幕",
+            "source_id": "P01"
+          }
+        ]
+      },
+      {
+        "visual": "创作者场景示意（非产品界面）",
+        "visual_seconds": 4,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "你的视频，需要字幕吗？"
+          }
+        ]
+      },
+      {
+        "visual": "结尾文字卡片",
+        "visual_seconds": 3,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "欢迎了解。"
+          }
+        ]
+      }
+    ]
+  },
+  "estimated_total_seconds": null,
+  "source_ids": [
+    "P01"
+  ],
+  "sources": [
+    {
+      "id": "P01",
+      "product": "字幕助手",
+      "tags": [
+        "字幕",
+        "产品",
+        "字幕助手"
+      ],
+      "facts": [
+        "支持字幕"
+      ],
+      "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+    }
+  ],
+  "checks": {
+    "duration": null,
+    "rules": null
+  },
+  "questions": [],
+  "risks": [
+    "时长为文本启发式估算，未使用真实配音测量。",
+    "创意范围受已批准文案和画面白名单限制；任意语义改写需另行人工审核。",
+    "尚未进行真实平台政策、法律合规或最终视频审核。",
+    "任务未完成；draft 仅供排查，不能当作已验收脚本发布。"
+  ],
+  "steps_used": 2,
+  "max_steps": 2,
+  "elapsed_seconds": 1.937,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕助手"
+      },
+      "origin": "model",
+      "reason": "先检索产品素材以获取可引用事实",
+      "observation": {
+        "ok": true,
+        "materials": [
+          {
+            "id": "P01",
+            "product": "字幕助手",
+            "tags": [
+              "字幕",
+              "产品",
+              "字幕助手"
+            ],
+            "facts": [
+              "支持字幕"
+            ],
+            "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "step": 2,
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕助手",
+          "scenes": [
+            {
+              "visual": "产品名称卡片",
+              "visual_seconds": 3,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                }
+              ]
+            },
+            {
+              "visual": "字幕功能文字卡片",
+              "visual_seconds": 4,
+              "segments": [
+                {
+                  "kind": "fact",
+                  "text": "支持字幕",
+                  "source_id": "P01"
+                }
+              ]
+            },
+            {
+              "visual": "创作者场景示意（非产品界面）",
+              "visual_seconds": 4,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                }
+              ]
+            },
+            {
+              "visual": "结尾文字卡片",
+              "visual_seconds": 3,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "欢迎了解。"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "origin": "model",
+      "reason": "已检索到产品事实，按简洁风格用批准旁白与画面组稿",
+      "observation": {
+        "ok": true,
+        "draft_id": "66ef2df87f96edd3f27470dfd4de6379aaf51dce2d558202b56064315a41e2f0",
+        "scene_count": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "message": "脚本通过当前素材、品牌规则与估算时长检查。",
+  "provider": "live",
+  "history_origin": "provider_driven",
+  "model": "deepseek-chat",
+  "input": {
+    "topic": "字幕助手",
+    "audience": "新手视频创作者",
+    "platform": "抖音",
+    "target_seconds": 30,
+    "style": "简洁介绍"
+  },
+  "corpus_sha256": "676b1490245439c3c6bace08d3258462e0425f15a27e29d704952ecf0168a4bc",
+  "script": {
+    "title": "字幕助手",
+    "scenes": [
+      {
+        "visual": "产品名称卡片",
+        "visual_seconds": 3,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "今天，聊聊字幕。"
+          }
+        ]
+      },
+      {
+        "visual": "字幕功能文字卡片",
+        "visual_seconds": 4,
+        "segments": [
+          {
+            "kind": "fact",
+            "text": "支持字幕",
+            "source_id": "P01"
+          }
+        ]
+      },
+      {
+        "visual": "创作者场景示意（非产品界面）",
+        "visual_seconds": 4,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "你的视频，需要字幕吗？"
+          }
+        ]
+      },
+      {
+        "visual": "结尾文字卡片",
+        "visual_seconds": 3,
+        "segments": [
+          {
+            "kind": "neutral",
+            "text": "把注意力放在表达上。"
+          }
+        ]
+      }
+    ]
+  },
+  "draft": null,
+  "estimated_total_seconds": 14.0,
+  "source_ids": [
+    "P01"
+  ],
+  "sources": [
+    {
+      "id": "P01",
+      "product": "字幕助手",
+      "tags": [
+        "字幕",
+        "产品",
+        "字幕助手"
+      ],
+      "facts": [
+        "支持字幕"
+      ],
+      "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+    }
+  ],
+  "checks": {
+    "duration": {
+      "ok": true,
+      "draft_id": "cdee2d09a0c6f13083850ca9218672845ada24d4ae79224a37922d19e961c1bf",
+      "scenes": [
+        {
+          "scene": 1,
+          "start_seconds": 0,
+          "seconds": 3.0,
+          "end_seconds": 3.0,
+          "source_ids": [],
+          "speech_units": 6
+        },
+        {
+          "scene": 2,
+          "start_seconds": 3.0,
+          "seconds": 4.0,
+          "end_seconds": 7.0,
+          "source_ids": [
+            "P01"
+          ],
+          "speech_units": 4
+        },
+        {
+          "scene": 3,
+          "start_seconds": 7.0,
+          "seconds": 4.0,
+          "end_seconds": 11.0,
+          "source_ids": [],
+          "speech_units": 9
+        },
+        {
+          "scene": 4,
+          "start_seconds": 11.0,
+          "seconds": 3.0,
+          "end_seconds": 14.0,
+          "source_ids": [],
+          "speech_units": 9
+        }
+      ],
+      "total_seconds": 14.0,
+      "limit_seconds": 30,
+      "within_limit": true,
+      "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+    },
+    "rules": {
+      "ok": true,
+      "draft_id": "cdee2d09a0c6f13083850ca9218672845ada24d4ae79224a37922d19e961c1bf",
+      "passed": true,
+      "issues": [],
+      "scenes": [
+        {
+          "scene": 1,
+          "passed": true,
+          "source_ids": [],
+          "issues": []
+        },
+        {
+          "scene": 2,
+          "passed": true,
+          "source_ids": [
+            "P01"
+          ],
+          "issues": []
+        },
+        {
+          "scene": 3,
+          "passed": true,
+          "source_ids": [],
+          "issues": []
+        },
+        {
+          "scene": 4,
+          "passed": true,
+          "source_ids": [],
+          "issues": []
+        }
+      ]
+    }
+  },
+  "questions": [],
+  "risks": [
+    "时长为文本启发式估算，未使用真实配音测量。",
+    "创意范围受已批准文案和画面白名单限制；任意语义改写需另行人工审核。",
+    "尚未进行真实平台政策、法律合规或最终视频审核。"
+  ],
+  "steps_used": 5,
+  "max_steps": 14,
+  "elapsed_seconds": 5.36,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕助手"
+      },
+      "origin": "model",
+      "reason": "先检索本地素材以获取产品事实与可用画面",
+      "observation": {
+        "ok": true,
+        "materials": [
+          {
+            "id": "P01",
+            "product": "字幕助手",
+            "tags": [
+              "字幕",
+              "产品",
+              "字幕助手"
+            ],
+            "facts": [
+              "支持字幕"
+            ],
+            "provenance": "题目提供的合成产品事实；非真实产品宣传材料"
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "step": 2,
+      "action": "write_script",
+      "arguments": {
+        "script": {
+          "title": "字幕助手",
+          "scenes": [
+            {
+              "visual": "产品名称卡片",
+              "visual_seconds": 3,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "今天，聊聊字幕。"
+                }
+              ]
+            },
+            {
+              "visual": "字幕功能文字卡片",
+              "visual_seconds": 4,
+              "segments": [
+                {
+                  "kind": "fact",
+                  "text": "支持字幕",
+                  "source_id": "P01"
+                }
+              ]
+            },
+            {
+              "visual": "创作者场景示意（非产品界面）",
+              "visual_seconds": 4,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "你的视频，需要字幕吗？"
+                }
+              ]
+            },
+            {
+              "visual": "结尾文字卡片",
+              "visual_seconds": 3,
+              "segments": [
+                {
+                  "kind": "neutral",
+                  "text": "把注意力放在表达上。"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "origin": "model",
+      "reason": "已检索到产品事实，按简洁风格用批准短句与画面组稿",
+      "observation": {
+        "ok": true,
+        "draft_id": "cdee2d09a0c6f13083850ca9218672845ada24d4ae79224a37922d19e961c1bf",
+        "scene_count": 4
+      }
+    },
+    {
+      "step": 3,
+      "action": "estimate_duration",
+      "arguments": {},
+      "origin": "model",
+      "reason": "草稿已生成，先估算时长是否在30秒上限内",
+      "observation": {
+        "ok": true,
+        "draft_id": "cdee2d09a0c6f13083850ca9218672845ada24d4ae79224a37922d19e961c1bf",
+        "scenes": [
+          {
+            "scene": 1,
+            "start_seconds": 0,
+            "seconds": 3.0,
+            "end_seconds": 3.0,
+            "source_ids": [],
+            "speech_units": 6
+          },
+          {
+            "scene": 2,
+            "start_seconds": 3.0,
+            "seconds": 4.0,
+            "end_seconds": 7.0,
+            "source_ids": [
+              "P01"
+            ],
+            "speech_units": 4
+          },
+          {
+            "scene": 3,
+            "start_seconds": 7.0,
+            "seconds": 4.0,
+            "end_seconds": 11.0,
+            "source_ids": [],
+            "speech_units": 9
+          },
+          {
+            "scene": 4,
+            "start_seconds": 11.0,
+            "seconds": 3.0,
+            "end_seconds": 14.0,
+            "source_ids": [],
+            "speech_units": 9
+          }
+        ],
+        "total_seconds": 14.0,
+        "limit_seconds": 30,
+        "within_limit": true,
+        "method": "4 Chinese characters or English words/sec + 0.25 sec/punctuation + 0.5 sec/scene; max with visual hold"
+      }
+    },
+    {
+      "step": 4,
+      "action": "check_rules",
+      "arguments": {},
+      "origin": "model",
+      "reason": "时长14秒未超30秒上限，接着核验事实引用与品牌规则",
+      "observation": {
+        "ok": true,
+        "draft_id": "cdee2d09a0c6f13083850ca9218672845ada24d4ae79224a37922d19e961c1bf",
+        "passed": true,
+        "issues": [],
+        "scenes": [
+          {
+            "scene": 1,
+            "passed": true,
+            "source_ids": [],
+            "issues": []
+          },
+          {
+            "scene": 2,
+            "passed": true,
+            "source_ids": [
+              "P01"
+            ],
+            "issues": []
+          },
+          {
+            "scene": 3,
+            "passed": true,
+            "source_ids": [],
+            "issues": []
+          },
+          {
+            "scene": 4,
+            "passed": true,
+            "source_ids": [],
+            "issues": []
+          }
+        ]
+      }
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "arguments": {},
+      "origin": "model",
+      "reason": "草稿时长14秒未超30秒上限，事实引用与品牌规则核验均通过",
+      "observation": {
+        "ok": true,
+        "status": "completed"
+      }
+    }
+  ]
+}
